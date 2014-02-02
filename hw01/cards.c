@@ -12,10 +12,12 @@ int getVal()
    card_name: buffer where result is stored
    val: Place where resulting value is stored
 */
+	
 	char card_name[3];
+	int val = 0;
+	
 	puts("Enter the card_name: ");
 	scanf("%2s", card_name);
-	int val = 0;
 	switch(card_name[0]) {
 	case 'K':
 	case 'Q':
