@@ -16,25 +16,44 @@ License: Creative Commons Attribution-ShareAlike 3.0
 // For example, if s is allen, n is 10 and fillchar is .
 // the result is ..allen... 
 
-char *center(char *s, int n, char fillchar)
+char *center(char *s, int n, char *fillchar)
 {
-    // FILL THIS IN
-    //    return NULL;
+    int i;
+    int total = 0;
+    char *dest;
+
+
+
+    for (i=0; i<n; i++) {
+        total += strlen(s);
+    }
+    dest = (char *) malloc( total * sizeof(s)+n);
+    for (i=0;i<n;i++){
+        if (i == n/2){
+            strcat(dest,s);
+        }
+        else{ 
+            strcat(dest, fillchar);
+        }
+    }
+    return dest;
+
+
 }
 
 
 int main (int argc, char *argv[])
 {
-    char *s = center("Software", 30, '.');
+    char *s = center("Software", 30, ".");
     printf("%s\n", s);
 
-    char *s2 = center("Systems", 31, '-');
+    char *s2 = center("Systems", 31, "-");
     printf("%s\n", s2);
 
-    char *s3 = center("Spring 2014", 32, '*');
+    char *s3 = center("Spring 2014", 32, "*");
     printf("%s\n", s3);
 
-    char *s4 = center("Exam 1", 33, '^');
+    char *s4 = center("Exam 1", 33, "^");
     printf("%s\n", s4);
 
     return 0;
