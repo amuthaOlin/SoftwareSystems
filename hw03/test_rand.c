@@ -51,6 +51,41 @@ main (int argc, char *argv[])
   srandom (seed);
   t0 = get_seconds();
   for (i=0; i<iters; i++) {
+    f = my_random_double();
+  }
+  t1 = get_seconds();
+  printf ("mydouble \t %f ms\n", t1 - t0);    
+    
+
+  srandom (seed);
+  t0 = get_seconds();
+  for (i=0; i<iters; i++) {
+    f = my_random_double();
+  }
+  t1 = get_seconds();
+  printf ("mydouble \t %f ms\n", t1 - t0); 
+
+  srandom (seed);
+  t0 = get_seconds();
+  for (i=0; i<iters; i++) {
+    f = random_double();
+  }
+  t1 = get_seconds();
+  printf ("double \t %f ms\n", t1 - t0);    
+    
+
+  srandom (seed);
+  t0 = get_seconds();
+  for (i=0; i<iters; i++) {
+    f = random_double();
+  }
+  t1 = get_seconds();
+  printf ("double \t %f ms\n", t1 - t0); 
+
+
+  srandom (seed);
+  t0 = get_seconds();
+  for (i=0; i<iters; i++) {
     f = dummy();
   }
   t1 = get_seconds();
@@ -64,26 +99,24 @@ main (int argc, char *argv[])
   }
   t1 = get_seconds();
   printf ("dummy \t %f ms\n", t1 - t0);
+  
+  srandom (seed);
+  t0 = get_seconds();
+  for (i=0; i<iters; i++) {
+    f = dummy2();
+  }
+  t1 = get_seconds();
+  printf ("dummy2 \t %f ms\n", t1 - t0); 
+
+  srandom (seed);
+  t0 = get_seconds();
+  for (i=0; i<iters; i++) {
+    f = dummy2();
+  }
+  t1 = get_seconds();
+  printf ("dummy2 \t %f ms\n", t1 - t0);
+ 
    
-
-  srandom (seed);
-  t0 = get_seconds();
-  for (i=0; i<iters; i++) {
-    f = dummy2();
-  }
-  t1 = get_seconds();
-  printf ("dummy2 \t %f ms\n", t1 - t0);    
-    
-
-  srandom (seed);
-  t0 = get_seconds();
-  for (i=0; i<iters; i++) {
-    f = dummy2();
-  }
-  t1 = get_seconds();
-  printf ("dummy2 \t %f ms\n", t1 - t0);    
-    
-
   srandom (seed);
   t0 = get_seconds();
   for (i=0; i<iters; i++) {
@@ -118,4 +151,23 @@ main (int argc, char *argv[])
   }
   t1 = get_seconds();
   printf ("theirs \t %f ms\n", t1 - t0);    
+
+  srandom (seed);
+  t0 = get_seconds();
+  for (i=0; i<iters; i++) {
+    f = my_random_float2();
+  }
+  t1 = get_seconds();
+  printf ("mine2 \t %f ms\n", t1 - t0);    
+    
+
+  srandom (seed);
+  t0 = get_seconds();
+  for (i=0; i<iters; i++) {
+    f = my_random_float2();
+  }
+  t1 = get_seconds();
+  printf ("mine2 \t %f ms\n", t1 - t0); 
+
+
 }
