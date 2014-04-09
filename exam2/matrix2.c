@@ -169,27 +169,80 @@ double *row_sum(Matrix *A) {
    Feel free to use row_sum().
 */
 
+int is_magic_square(Matrix *A){
+    double total;
+    double guess;
+    int i, j;
+
+    if(A->rows != A->cols){
+        return 0;
+    }
+    for (i=0;i<A->rows; i++){
+        total += A->data[i][0];
+    }
+    for(i=0;i<A->rows;i++){
+        guess = 0.0;
+        for(j=0;j<A->cols;j++){
+            guess += A->data[i][j];
+
+        }
+        if (guess != total){
+            return 0;
+        }
+    }
+    for(i=0;i<A->cols;i++){
+        guess = 0.0;
+        for(j=0;j<A->rows;j++){
+            guess += A->data[i][j];
+
+        }
+        if (guess != total){
+            return 0;
+        }
+    }
+    guess = 0.0;
+    for(i=0;i<A->cols;i++){
+        guess += A->data[i][i];
+        }
+        if (guess != total){
+            return 0;
+        }
+    guess = 0.0;
+    for(i=A->cols-1;i>-1;i--){
+        guess += A->data[i][i];
+        }
+        if (guess != total){
+            return 0;
+        }
+        
+    return 1;
+}
+
 
 int main() {
-    int i;
+    int i,j;
 
-    Matrix *A = make_matrix(3, 4);
+    Matrix *A = make_matrix(3, 3);
     consecutive_matrix(A);
     printf("A\n");
     print_matrix(A);
+    
 
     Matrix *C = add_matrix_func(A, A);
     printf("A + A\n");
     print_matrix(C);
+    
 
-    Matrix *B = make_matrix(4, 3);
-    increment_matrix(B, 1);
+    Matrix *B = make_matrix(3, 3);
+    increment_matrix(B, 2);
     printf("B\n");
     print_matrix(B);
+
 
     Matrix *D = mult_matrix_func(A, B);
     printf("D\n");
     print_matrix(D);
+    
 
     double sum = matrix_sum1(A);
     printf("sum = %lf\n", sum);
